@@ -1,12 +1,16 @@
 pipeline {
-	agent any //{
-	// 	docker {
-	// 		image 'node:16-alpine'
-	// 	}
-	// }
+	agent any {
+		docker {
+			image 'node:14'
+		}
+	}
 	stages {
 		stage("Build Angular Web App"){
 			steps {
+				nodejs(nodeJSInstallationName: 'node 14') {
+                	sh 'npm install' // Install dependencies
+       				sh 'npm run build' // Build the Angular application
+                }
 				// sh 'npm install' // Install dependencies
        			// sh 'npm run build' // Build the Angular application
 				echo 'Building The Application... 03'
