@@ -1,9 +1,9 @@
 pipeline {
-	agent {
-		docker {
-			image 'node:16-alpine'
-		}
-	}
+	agent any //{
+	// 	docker {
+	// 		image 'node:16-alpine'
+	// 	}
+	// }
 	stages {
 		stage("Build Angular Web App"){
 			steps {
